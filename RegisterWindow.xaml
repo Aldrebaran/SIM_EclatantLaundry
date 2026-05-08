@@ -1,0 +1,228 @@
+﻿<Window
+    x:Class="EclatantLaundry.RegisterWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Daftar Akun"
+    WindowStartupLocation="CenterScreen"
+    WindowState="Maximized">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Offset="0.0" Color="#FF8C42" />
+                <GradientStop Offset="0.5" Color="White" />
+                <GradientStop Offset="1.0" Color="#FF8C42" />
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Border
+            Width="450"
+            Height="Auto"
+            MaxHeight="650"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Background="White"
+            CornerRadius="30">
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel
+                    x:Name="MainContainer"
+                    Margin="50"
+                    VerticalAlignment="Center">
+
+                    <Image
+                        Height="60"
+                        Margin="0,0,0,10"
+                        HorizontalAlignment="Center"
+                        Source="D:\Tugas\SIM\EclatantLaundry\Assets\Logo.png" />
+
+                    <TextBlock
+                        Margin="0,0,0,30"
+                        HorizontalAlignment="Center"
+                        FontSize="11"
+                        FontWeight="Bold"
+                        Text="LAUNDRY &amp; DRY CLEANING" />
+
+                    <TextBlock
+                        Margin="0,0,0,5"
+                        HorizontalAlignment="Center"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Text="Buat Akun Baru" />
+
+                    <TextBlock
+                        Margin="0,0,0,30"
+                        HorizontalAlignment="Center"
+                        FontSize="11"
+                        Foreground="Gray"
+                        Text="Isi data berikut untuk membuat akun" />
+
+                    <Border
+                        Height="50"
+                        Margin="0,0,0,15"
+                        BorderBrush="Gray"
+                        BorderThickness="1"
+                        CornerRadius="15">
+                        <Grid>
+                            <TextBlock
+                                x:Name="lblUserPlaceholder"
+                                Margin="15,0"
+                                VerticalAlignment="Center"
+                                Foreground="Gray"
+                                IsHitTestVisible="False"
+                                Text="Username" />
+                            <TextBox
+                                x:Name="txtRegUsername"
+                                Margin="5,0"
+                                VerticalContentAlignment="Center"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                GotFocus="TxtUsername_GotFocus"
+                                LostFocus="TxtUsername_LostFocus" />
+                        </Grid>
+                    </Border>
+
+                    <Border
+                        Height="50"
+                        Margin="0,0,0,15"
+                        BorderBrush="Gray"
+                        BorderThickness="1"
+                        CornerRadius="15">
+                        <Grid>
+                            <TextBlock
+                                x:Name="lblNamaPlaceholder"
+                                Margin="15,0"
+                                VerticalAlignment="Center"
+                                Foreground="Gray"
+                                IsHitTestVisible="False"
+                                Text="Nama" />
+                            <TextBox
+                                x:Name="txtRegNama"
+                                Margin="5,0"
+                                VerticalContentAlignment="Center"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                GotFocus="TxtNama_GotFocus"
+                                LostFocus="TxtNama_LostFocus" />
+                        </Grid>
+                    </Border>
+
+                    <Border
+                        Height="50"
+                        Margin="0,0,0,15"
+                        BorderBrush="Gray"
+                        BorderThickness="1"
+                        CornerRadius="15">
+                        <Grid>
+                            <TextBlock
+                                x:Name="lblPassPlaceholder"
+                                Margin="15,0"
+                                VerticalAlignment="Center"
+                                Foreground="Gray"
+                                IsHitTestVisible="False"
+                                Text="Password" />
+                            <PasswordBox
+                                x:Name="txtRegPassword"
+                                Margin="5,0"
+                                VerticalContentAlignment="Center"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                GotFocus="TxtPassword_GotFocus"
+                                LostFocus="TxtPassword_LostFocus" />
+                        </Grid>
+                    </Border>
+
+                    <Border
+                        Height="50"
+                        Margin="0,0,0,15"
+                        BorderBrush="Gray"
+                        BorderThickness="1"
+                        CornerRadius="15">
+                        <Grid>
+                            <TextBlock
+                                x:Name="lblConfirmPlaceholder"
+                                Margin="15,0"
+                                VerticalAlignment="Center"
+                                Foreground="Gray"
+                                IsHitTestVisible="False"
+                                Text="Konfirmasi Password" />
+                            <PasswordBox
+                                x:Name="txtRegConfirm"
+                                Margin="5,0"
+                                VerticalContentAlignment="Center"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                GotFocus="TxtConfirm_GotFocus"
+                                LostFocus="TxtConfirm_LostFocus" />
+                        </Grid>
+                    </Border>
+
+                    <Button
+                        x:Name="btnDaftar"
+                        Height="50"
+                        Margin="0,10,0,0"
+                        Background="#FF5722"
+                        BorderThickness="0"
+                        Click="Daftar_Click"
+                        Content="Daftar Akun"
+                        Cursor="Hand"
+                        FontWeight="Bold"
+                        Foreground="White">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border
+                                                x:Name="btnBorder"
+                                                Background="{TemplateBinding Background}"
+                                                CornerRadius="15">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="btnBorder" Property="Background" Value="#E64A19" />
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                    <StackPanel
+                        Margin="0,20,0,0"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                        <TextBlock
+                            FontSize="12"
+                            Foreground="Gray"
+                            Text="Sudah punya akun? " />
+                        <TextBlock
+                            Cursor="Hand"
+                            FontWeight="Bold"
+                            Foreground="Blue"
+                            MouseLeftButtonUp="Login_Click"
+                            Text="Login">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Opacity" Value="0.6" />
+                                            <Setter Property="TextDecorations" Value="Underline" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </StackPanel>
+
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+
+    </Grid>
+
+
+</Window>

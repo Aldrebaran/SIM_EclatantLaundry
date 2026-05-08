@@ -1,0 +1,314 @@
+﻿<Page
+    x:Class="EclatantLaundry.DashboardPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:EclatantLaundry"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="DashboardPage">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Offset="0.0" Color="White" />
+                <GradientStop Offset="0.3" Color="White" />
+                <GradientStop Offset="0.7" Color="#FF7D4D" />
+                <GradientStop Offset="1.0" Color="#FF5722" />
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid Margin="20,10,20,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel
+                Grid.Row="0"
+                Margin="0,0,0,10"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <TextBlock
+                    x:Name="txtNamaProfil"
+                    Margin="0,0,12,0"
+                    VerticalAlignment="Center"
+                    FontSize="16"
+                    FontWeight="SemiBold"
+                    Foreground="#333333"
+                    Text="Supervisor" />
+
+                <Grid Width="35" Height="35">
+                    <Ellipse Fill="#FF5722" />
+
+                    <Canvas ClipToBounds="True">
+                        <Ellipse
+                            Canvas.Left="11.5"
+                            Canvas.Top="6"
+                            Width="12"
+                            Height="12"
+                            Fill="White" />
+                        <Ellipse
+                            Canvas.Left="5.5"
+                            Canvas.Top="19"
+                            Width="24"
+                            Height="20"
+                            Fill="White" />
+                    </Canvas>
+                </Grid>
+            </StackPanel>
+
+            <Border
+                Grid.Row="1"
+                Margin="0,5,0,30"
+                BorderBrush="#33000000"
+                BorderThickness="0,0.5,0,0" />
+
+            <StackPanel Grid.Row="2" Margin="0,0,0,35">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock
+                        FontSize="26"
+                        FontWeight="SemiBold"
+                        Foreground="#333333"
+                        Text="Selamat datang, " />
+
+                    <TextBlock
+                        x:Name="txtNamaSupervisor"
+                        FontSize="26"
+                        FontWeight="Bold"
+                        Foreground="#333333"
+                        Text="Nama Supervisor" />
+
+                    <TextBlock
+                        FontSize="26"
+                        FontWeight="SemiBold"
+                        Foreground="#333333"
+                        Text="!" />
+                </StackPanel>
+
+                <TextBlock
+                    Margin="0,8,0,0"
+                    FontSize="15"
+                    Foreground="#777777"
+                    Text="Kelola stok barang laundry dengan mudah dan terstruktur." />
+            </StackPanel>
+
+            <Grid x:Name="MainContentGrid" Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel
+                    Grid.Column="0"
+                    Margin="10,0,20,0"
+                    HorizontalAlignment="Left">
+
+                    <Border
+                        Height="140"
+                        Margin="0,0,0,20"
+                        Background="#D1E4FF"
+                        CornerRadius="18">
+                        <Border.Effect>
+                            <DropShadowEffect
+                                BlurRadius="15"
+                                Direction="315"
+                                Opacity="0.1"
+                                ShadowDepth="3" />
+                        </Border.Effect>
+
+                        <Grid Margin="25,20">
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock
+                                    FontSize="15"
+                                    FontWeight="SemiBold"
+                                    Foreground="#4A5568"
+                                    Text="Total Stok Barang" />
+
+                                <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+
+                                    <TextBlock
+                                        x:Name="txtTotalBatch"
+                                        FontSize="34"
+                                        FontWeight="Bold"
+                                        Foreground="#2B6CB0"
+                                        Text="12" />
+
+                                    <TextBlock
+                                        Margin="8,0,0,6"
+                                        VerticalAlignment="Bottom"
+                                        FontSize="16"
+                                        FontWeight="SemiBold"
+                                        Foreground="#2B6CB0"
+                                        Text="Barang" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+
+                    <Border
+                        Height="130"
+                        Margin="0,0,0,20"
+                        Background="#D8D1FF"
+                        CornerRadius="18">
+                        <Border.Effect>
+                            <DropShadowEffect
+                                BlurRadius="15"
+                                Direction="315"
+                                Opacity="0.1"
+                                ShadowDepth="3" />
+                        </Border.Effect>
+
+                        <Grid Margin="25,20">
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock
+                                    FontSize="15"
+                                    FontWeight="SemiBold"
+                                    Foreground="#4A5568"
+                                    Text="Akan Kedaluwarsa" />
+                                <StackPanel Margin="0,5,0,0" Orientation="Horizontal">
+                                    <TextBlock
+                                        x:Name="txtAkanExpired"
+                                        FontSize="34"
+                                        FontWeight="Bold"
+                                        Foreground="#553C9A"
+                                        Text="3" />
+
+                                    <TextBlock
+                                        Margin="6,0,0,5"
+                                        VerticalAlignment="Bottom"
+                                        FontSize="16"
+                                        FontWeight="SemiBold"
+                                        Foreground="#553C9A"
+                                        Text="Barang" />
+                                </StackPanel>
+
+                                <TextBlock
+                                    Margin="0,5,0,0"
+                                    FontSize="11"
+                                    Foreground="#6B46C1"
+                                    Text="Kedaluwarsa dalam 7 hari ke depan" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+
+                    <Border
+                        Height="130"
+                        Background="#D1FFEB"
+                        CornerRadius="18">
+                        <Border.Effect>
+                            <DropShadowEffect
+                                BlurRadius="15"
+                                Direction="315"
+                                Opacity="0.1"
+                                ShadowDepth="3" />
+                        </Border.Effect>
+
+                        <Grid Margin="25,20">
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock
+                                    FontSize="15"
+                                    FontWeight="SemiBold"
+                                    Foreground="#4A5568"
+                                    Text="Stok Menipis" />
+
+                                <StackPanel Margin="0,5,0,0" Orientation="Horizontal">
+                                    <TextBlock
+                                        x:Name="txtStokMenipis"
+                                        FontSize="34"
+                                        FontWeight="Bold"
+                                        Foreground="#276749"
+                                        Text="5" />
+
+                                    <TextBlock
+                                        Margin="6,0,0,5"
+                                        VerticalAlignment="Bottom"
+                                        FontSize="16"
+                                        FontWeight="SemiBold"
+                                        Foreground="#276749"
+                                        Text=" Barang" />
+                                </StackPanel>
+                                <TextBlock
+                                    Margin="0,5,0,0"
+                                    FontSize="11"
+                                    Foreground="#2F855A"
+                                    Text="Barang di bawah batas minimum" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+
+                <Border
+                    Grid.Column="1"
+                    Background="#CCFFFFFF"
+                    CornerRadius="20"
+                    Margin="10,0,10,20">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="20" Opacity="0.05" Direction="315"/>
+                    </Border.Effect>
+
+                    <Grid Margin="25">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Grid.Row="0" Margin="0,0,0,20">
+                            <TextBlock 
+                                Text="Detail Peringatan Stok"
+                                FontSize="18"
+                                FontWeight="Bold"
+                                Foreground="#333333" />
+
+                            <TextBlock 
+                                Text="Daftar batch yang memerlukan perhatian segera"
+                                FontSize="12"
+                                Foreground="#718096"
+                                Margin="0,4,0,0"/>
+                        </StackPanel>
+
+                        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                            <ItemsControl x:Name="listWarning">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border
+                                            Margin="0,0,0,12"
+                                            Padding="15"
+                                            Background="White"
+                                            BorderBrush="{Binding WarnaStatus}"
+                                            BorderThickness="1.5"
+                                            CornerRadius="12">
+                                            <Grid>
+                                                <StackPanel>
+                                                    <TextBlock 
+                                                        FontSize="14"
+                                                        FontWeight="Bold"
+                                                        Foreground="#333333"
+                                                        Text="{Binding NamaBarang}" />
+
+                                                    <TextBlock 
+                                                        Margin="0,4,0,0"
+                                                        FontSize="12"
+                                                        Foreground="{Binding WarnaStatus}"
+                                                        Text="{Binding PesanWarning}" />
+                                                </StackPanel>
+                                                <TextBlock 
+                                                    HorizontalAlignment="Right"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="10"
+                                                    FontWeight="Bold"
+                                                    Foreground="{Binding WarnaStatus}"
+                                                    Text="⚠️ PERHATIAN" />
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

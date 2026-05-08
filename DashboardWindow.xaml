@@ -1,0 +1,202 @@
+﻿<Window
+    x:Class="EclatantLaundry.DashboardWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:EclatantLaundry"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="DashboardWindow"
+    WindowStartupLocation="CenterScreen"
+    WindowState="Maximized">
+
+    <Window.Resources>
+        <Style x:Key="SidebarButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="Padding" Value="20,0,0,0" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            x:Name="btnBorder"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="10">
+                            <ContentPresenter Margin="{TemplateBinding Padding}" VerticalAlignment="Center" />
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="btnBorder" Property="Background" Value="#DDE4E9" />
+                                <Setter Property="Cursor" Value="Hand" />
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="btnBorder" Property="Background" Value="#CCCCCC" />
+                                <Setter TargetName="btnBorder" Property="RenderTransform">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="0.98" ScaleY="0.98" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+
+                            <Trigger Property="Tag" Value="Active">
+                                <Setter TargetName="btnBorder" Property="Background" Value="#FF5722" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="LogoutButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="220" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Margin" Value="0,0,0,30" />
+            <Setter Property="Background" Value="#FF5722" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            Name="btnBorder"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="10">
+                            <ContentPresenter
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Content="{TemplateBinding Content}" />
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="btnBorder" Property="Background" Value="#E64A19" />
+                                <Setter Property="Cursor" Value="Hand" />
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="btnBorder" Property="Background" Value="#BF360C" />
+                                <Setter TargetName="btnBorder" Property="RenderTransform">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Border
+            Grid.Column="0"
+            Panel.ZIndex="1"
+            Background="#E3EDF5"
+            CornerRadius="0,20,0,0">
+            <Border.Effect>
+                <DropShadowEffect
+                    BlurRadius="25"
+                    Direction="0"
+                    Opacity="0.5"
+                    ShadowDepth="4"
+                    Color="Black" />
+            </Border.Effect>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Margin="20,30,20,40">
+                    <Image Height="50" Source="D:\Tugas\SIM\EclatantLaundry\Assets\Logo.png" />
+                    <TextBlock
+                        Margin="0,10,0,0"
+                        HorizontalAlignment="Center"
+                        FontSize="10"
+                        FontWeight="Bold"
+                        Text="LAUNDRY &amp; DRY CLEANING" />
+                </StackPanel>
+
+
+                <StackPanel
+                    x:Name="MenuPanel"
+                    Grid.Row="1"
+                    Margin="10,0">
+                    <Button
+                        Height="45"
+                        Margin="0,5"
+                        Click="Nav_General_Click"
+                        Content="Beranda"
+                        FontWeight="Bold"
+                        Style="{StaticResource SidebarButtonStyle}"
+                        Tag="Active" />
+
+                    <Button
+                        Height="45"
+                        Margin="0,5"
+                        Padding="20,0"
+                        BorderThickness="0"
+                        Click="Nav_General_Click"
+                        Content="Data Barang"
+                        Style="{StaticResource SidebarButtonStyle}"
+                        Tag="Inactive" />
+
+                    <Button
+                        Height="45"
+                        Margin="0,5"
+                        Padding="20,0"
+                        BorderThickness="0"
+                        Click="Nav_General_Click"
+                        Content="Barang Masuk"
+                        Style="{StaticResource SidebarButtonStyle}"
+                        Tag="Inactive" />
+
+                    <Button
+                        Height="45"
+                        Margin="0,5"
+                        Padding="20,0"
+                        BorderThickness="0"
+                        Click="Nav_General_Click"
+                        Content="Barang Keluar"
+                        Style="{StaticResource SidebarButtonStyle}"
+                        Tag="Inactive" />
+
+                    <Button
+                        Height="45"
+                        Margin="0,5"
+                        Padding="20,0"
+                        BorderThickness="0"
+                        Click="Nav_General_Click"
+                        Content="Laporan"
+                        Style="{StaticResource SidebarButtonStyle}"
+                        Tag="Inactive" />
+                </StackPanel>
+
+                <Button
+                    Grid.Row="2"
+                    Click="Keluar_Click"
+                    Content="Keluar"
+                    Style="{StaticResource LogoutButtonStyle}" />
+            </Grid>
+        </Border>
+
+        <Frame
+            x:Name="MainFrame"
+            Grid.Column="1"
+            Margin="0"
+            Background="Transparent"
+            NavigationUIVisibility="Hidden" />
+    </Grid>
+</Window>
